@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Header from '../components/Header'
 import { useSession, signIn, signOut } from 'next-auth/react'
 import LogIn from '../components/LogIn'
+import SideBar from '../components/SideBar'
 
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
       </Head>
       <Header/>
       <main>
-        {/* sidebar */}
+        <SideBar/>
         {/* feed */}
         {/* widgets */}
       </main>
