@@ -11,10 +11,12 @@ import HeaderIcon from './HeaderIcon'
 import {TbGridDots} from 'react-icons/tb'
 import {BiMessage} from 'react-icons/bi'
 import {RiArrowDownSLine} from 'react-icons/ri'
+import { useSession , signOut } from 'next-auth/react'
 
 
 
 function Header() {
+  const session = useSession()
   return (
     <div className='flex w-[100vw] items-center sticky top-0 bg-white z-50 p-2 lg:px-5 shadow-md'>
       <div className='flex items-center'>
@@ -41,7 +43,8 @@ function Header() {
       </div>
       <div className='flex items-center sm:justify-end space-x-2 cursor-pointer'>
         {/* profile */}
-        <p className='whitespace-nowrap pr-3 font-semibold'>Tooni Olaniyan</p>
+        <Image onClick={signOut} className='rounded-full cursor-pointer' src={session.data.user.image} width={40} height={40}  layout='fixed' />
+        <p className='whitespace-nowrap pr-3 font-semibold'>{session.data.user.name}</p>
         <TbGridDots className='icon'/>
         <BiMessage className='icon'/>
         <BsBell className='icon'/>
