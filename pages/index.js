@@ -1,9 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Header from '../components/Header'
+import { getSession } from 'next-auth/react'
+import LogIn from '../components/LogIn'
 
 
-export default function Home() {
+export default function Home({session}) {
+  if(!session) <LogIn/>
+  console.log(session)
   return (
     <div>
       <Head>
@@ -20,4 +24,14 @@ export default function Home() {
 
     </div>
   )
+}
+
+export async function getServerSideProps(context){
+  const session = await getSession(context)
+  return {
+    props:{
+      session
+    }
+  }
+
 }
