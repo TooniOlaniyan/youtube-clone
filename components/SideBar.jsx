@@ -9,7 +9,7 @@ import {AiOutlineCalendar , AiOutlineClockCircle} from 'react-icons/ai'
 function SideBar() {
     const session = useSession()
   return (
-    <div className='p-2 mt-5 max-w-[600px] xl:min-w-[300px]'>
+    <div className='p-2 mt-5 max-w-[600px] xl:min-w-[300px] overflow-y-hidden'>
         <SideBarRow src={session.data.user.image} title={session.data.user.name} />
         <SideBarRow Icon={FiUsers} title='Friends' />
         <SideBarRow Icon={HiUserGroup} title='Groups' />
